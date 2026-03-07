@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.sidebar.title("Navigation")
+st.title("Halbwertszeit Rechner")
 
 
 st.write("Berechne die verbleibende Menge eines radioaktiven Stoffes oder die Halbwertszeit.")
