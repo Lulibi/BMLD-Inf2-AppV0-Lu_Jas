@@ -1,6 +1,7 @@
 import streamlit as st
 
-st.title("Halbwertszeit Rechner")
+st.sidebar.title("Navigation")
+
 
 st.write("Berechne die verbleibende Menge eines radioaktiven Stoffes oder die Halbwertszeit.")
 # Halbwertszeit Rechner app.py
