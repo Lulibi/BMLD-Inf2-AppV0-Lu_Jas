@@ -9,5 +9,5 @@ Diese App wurde von folgenden Personen entwickelt:
 - Jasleen Bal (baljas01@students.zhaw.ch)
 - Luana Birtone (birtolua@students.zhaw.ch)
 
-Diese App ist das leere Gerüst für die App-Entwicklung im Modul Informatik 2 (BMLD/ZHAW)
+Diese App berechnet verschiedene Werte zur Halbwertszeit radioaktiver Stoffe. Benutzer können die verbleibende Menge, die Halbwertszeit sowie die Zeit bis zu einer bestimmten Restmenge berechnen. Die App wurde mit Python und Streamlit erstellt und ermöglicht eine einfache und interaktive Berechnung.
 """

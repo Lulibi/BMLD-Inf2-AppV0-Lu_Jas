@@ -13,9 +13,11 @@ import math
 
 
 
-choice = st.radio("Was möchtest du berechnen?", ["Verbleibende Menge", "Halbwertszeit"])
+choice = st.radio("Was möchtest du berechnen?", ["Verbleibende Menge", "Halbwertszeit", "Zeit bis eine bestimmte Restmenge"])
 
 if choice == "Verbleibende Menge":
+
+    element = st.text_input("Gib ein radioaktives Element ein (z.B. Uran-238):")
 
     N0 = st.number_input("Anfangsmenge (N₀)", min_value=0.0, value=100.0)
 
@@ -32,6 +34,8 @@ if choice == "Verbleibende Menge":
         st.success(f"Die verbleibende Menge nach {t} Zeiteinheiten beträgt: {N:.2f}")
 
 elif choice == "Halbwertszeit":
+
+    element = st.text_input("Gib ein radioaktives Element ein (z.B. Uran-238):")
 
     N0 = st.number_input("Anfangsmenge (N₀)", min_value=0.0, value=100.0)
 
@@ -52,4 +56,27 @@ elif choice == "Halbwertszeit":
             T_half = t / (math.log2(N0 / N))
 
             st.success(f"Die Halbwertszeit beträgt: {T_half:.2f} Zeiteinheiten")
- 
+
+elif choice == "Zeit bis eine bestimmte Restmenge":
+
+    element = st.text_input("Gib ein radioaktives Element ein (z.B. Uran-238):")
+
+    N0 = st.number_input("Anfangsmenge (N₀)", min_value=0.0, value=100.0)
+
+    N = st.number_input("Gewünschte Restmenge (N)", min_value=0.0, value=25.0)
+
+    T_half = st.number_input("Halbwertszeit (T₁/₂)", min_value=0.1, value=5.0)
+
+    if st.button("Berechne benötigte Zeit"):
+
+        if N <= 0 or N >= N0:
+
+            st.error("Restmenge muss zwischen 0 und Anfangsmenge liegen!")
+
+        else:
+
+            # Formel: t = T_half * (log2(N0/N))
+
+            t = T_half * (math.log2(N0 / N))
+
+            st.success(f"Die benötigte Zeit bis zur Restmenge beträgt: {t:.2f} Zeiteinheiten")
