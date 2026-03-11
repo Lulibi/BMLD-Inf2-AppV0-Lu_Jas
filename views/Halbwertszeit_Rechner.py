@@ -80,3 +80,8 @@ elif choice == "Zeit bis eine bestimmte Restmenge":
             t = T_half * (math.log2(N0 / N))
 
             st.success(f"Die benötigte Zeit bis zur Restmenge beträgt: {t:.2f} Zeiteinheiten")
+            
+    st.session_state['data_df'] = pd.concat([st.session_state['data_df'], pd.DataFrame([result])])
+        
+# --- NEW CODE to display the history table ---
+st.dataframe(st.session_state['data_df'])
