@@ -1,4 +1,8 @@
+import datetime
 import math
+from unicodedata import category
+
+import pytz
 def verbleibende_menge(N0, T_half, t):
    """
    Berechnet die verbleibende Menge eines radioaktiven Stoffes nach der Zeit t.
@@ -23,4 +27,6 @@ def berechne_halbwertszeit(N0, N, t):
    """
    if N <= 0 or N >= N0:
        raise ValueError("Endmenge muss zwischen 0 und Anfangsmenge liegen!")
-   return t / math.log2(N0 / N)
+   return {
+        "timestamp": datetime.now(pytz.timezone('Europe/Zurich')),  # Current swiss time
+        "Halbwertszeit": t / math.log2(N0 / N)}
