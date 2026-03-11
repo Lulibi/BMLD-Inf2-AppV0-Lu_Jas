@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd  # --- NEW CODE: add pandas to the imports ---
 
 st.title("Halbwertszeit Rechner")
 
@@ -81,7 +82,9 @@ elif choice == "Zeit bis eine bestimmte Restmenge":
 
             st.success(f"Die benötigte Zeit bis zur Restmenge beträgt: {t:.2f} Zeiteinheiten")
             
-    st.session_state['data_df'] = pd.concat([st.session_state['data_df'], pd.DataFrame([result])])
+result = t
+            
+st.session_state['data_df'] = pd.concat([st.session_state['data_df'], pd.DataFrame([result])])
         
 # --- NEW CODE to display the history table ---
 st.dataframe(st.session_state['data_df'])
